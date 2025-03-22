@@ -16,7 +16,7 @@ A simple Electron.js application that displays files from the user's Desktop.
 
 ## Creating a Standalone Application
 
-To create a standalone executable:
+### Method 1: Using Electron Builder
 
 1. Make sure you have installed all dependencies (`npm install`)
 2. Build the application for your platform:
@@ -29,28 +29,57 @@ To create a standalone executable:
    - macOS: `.dmg` file
    - Linux: `.AppImage` file
 
+### Method 2: Using Electron Forge
+
+Electron Forge is another popular tool for packaging Electron applications:
+
+1. Make sure you have installed all dependencies (`npm install`)
+2. Package your application:
+   ```
+   npm run package
+   ```
+3. Create distributable installers:
+   ```
+   npm run make
+   ```
+4. Find your packaged application in:
+   - `out/electron-desktop-files-{platform}-{arch}/` (packaged app)
+   - `out/make/` (distributables)
+
 ## Portable Version (Windows) - TROUBLESHOOTING
 
-If you're having trouble creating a portable version, try these exact steps:
+If you're having trouble creating a portable version, try these different methods:
 
-1. Open a command prompt or PowerShell in your project directory
-2. Make sure you've installed all dependencies:
+### Using Electron Builder
+
+1. Make sure you've installed all dependencies:
    ```
    npm install
    ```
-3. Run the dedicated portable build command:
+2. Run the dedicated portable build command:
    ```
    npm run portable
    ```
-4. Look for the portable executable in the `dist` folder:
-   ```
-   dist/DesktopFilesViewer-Portable.exe
-   ```
-
-If that doesn't work, you can try running electron-builder directly:
+   
+Or try the direct command:
 ```
 npx electron-builder --win portable
 ```
+
+### Using Electron Forge
+
+1. Install dependencies:
+   ```
+   npm install
+   ```
+2. Create a packaged version:
+   ```
+   npm run package
+   ```
+3. Find the executable in:
+   ```
+   out/electron-desktop-files-win32-x64/electron-desktop-files.exe
+   ```
 
 ## Why Use the Portable Version?
 
@@ -64,4 +93,4 @@ The portable version is a completely self-contained executable:
 
 - Node.js
 - npm (Node Package Manager)
-- For building: electron-builder (installed automatically as dev dependency)
+- For building: electron-builder or electron-forge (installed automatically as dev dependencies)
