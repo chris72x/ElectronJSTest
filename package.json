@@ -8,8 +8,7 @@
     "build": "electron-builder --win --mac --linux",
     "build:win": "electron-builder --win",
     "build:win-portable": "electron-builder --win portable",
-    "build:mac": "electron-builder --mac",
-    "build:linux": "electron-builder --linux"
+    "portable": "electron-builder --win portable --config.win.target=portable"
   },
   "author": "",
   "license": "MIT",
