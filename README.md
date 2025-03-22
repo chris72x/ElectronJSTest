@@ -21,24 +21,44 @@ To create a standalone executable:
 1. Make sure you have installed all dependencies (`npm install`)
 2. Build the application for your platform:
    - Windows (installer): `npm run build:win`
-   - Windows (portable): `npm run build:win-portable`
+   - Windows (portable): `npm run portable`
    - macOS: `npm run build:mac`
    - Linux: `npm run build:linux`
-   - All platforms: `npm run build` (requires additional configuration)
 3. Find your distributable files in the `dist` folder:
    - Windows: `.exe` installer and `DesktopFilesViewer-Portable.exe` (fully portable)
    - macOS: `.dmg` file
    - Linux: `.AppImage` file
 
-## Portable Version (Windows)
+## Portable Version (Windows) - TROUBLESHOOTING
+
+If you're having trouble creating a portable version, try these exact steps:
+
+1. Open a command prompt or PowerShell in your project directory
+2. Make sure you've installed all dependencies:
+   ```
+   npm install
+   ```
+3. Run the dedicated portable build command:
+   ```
+   npm run portable
+   ```
+4. Look for the portable executable in the `dist` folder:
+   ```
+   dist/DesktopFilesViewer-Portable.exe
+   ```
+
+If that doesn't work, you can try running electron-builder directly:
+```
+npx electron-builder --win portable
+```
+
+## Why Use the Portable Version?
 
 The portable version is a completely self-contained executable:
 - No installation required
 - Can run from any location (USB drive, external drive, etc.)
 - No registry entries or system files are modified
 - Can be moved around without breaking functionality
-
-The portable executable will be created as `dist/DesktopFilesViewer-Portable.exe` when you run `npm run build:win-portable`.
 
 ## Requirements
 
